@@ -38,7 +38,7 @@ def run(kind, db_path, q_path, outdir, size="300K", k=30):
     nlist = 128 # number of clusters/centroids to build the IVF from
 
     if kind.startswith("pca"):
-        index_identifier = f"IVF{nlist},FlatIP"
+        index_identifier = f"IVF{nlist},Flat"
         index = faiss.index_factory(d, index_identifier)
     elif kind.startswith("hamming"):
         index_identifier = f"BIVF{nlist},Flat" # use binary IVF index
@@ -95,4 +95,4 @@ if __name__ == "__main__":
     db_path = f"data2024/laion2B-en-clip768v2-n={args.size}.h5"
     query_path = "data2024/public-queries-2024-laion2B-en-clip768v2-n=10k.h5"
     output_dir = f"results/task1/{args.size}/{datetime.datetime.now().strftime('%Y%m%d-%H%M%S')}"
-    run("pca32v2", db_path, query_path, output_dir, args.size, args.k)
+    run("pca", db_path, query_path, output_dir, args.size, args.k)
