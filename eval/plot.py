@@ -81,7 +81,8 @@ if __name__ == "__main__":
             continue
         dataset = res["data"]
         algo = res["algo"]
-        label = dataset + algo
+        # label = dataset + algo
+        label = algo
         if label not in lines:
             lines[label] =  {
                 "xs": [],

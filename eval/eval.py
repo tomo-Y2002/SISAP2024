@@ -2,7 +2,6 @@ import h5py
 import numpy as np
 import os
 import csv
-from urllib.request import urlretrieve
 
 
 def get_groundtruth(size="300K"):
